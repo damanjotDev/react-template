@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.button-div {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 1rem;
+}
