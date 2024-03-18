@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import useOutsideClick from "../../utils/outSideClick";
 import { FieldErrors } from "react-hook-form";
 import { FaAngleDown, FaCheck } from "../../utils/icons"
-
+import { motion } from "../../utils/animation";
 // import ReactSelect from 'react-select'
 
 interface Options {
@@ -64,7 +64,7 @@ const SelectSearch: React.FC<SelectProps> = ({
       >
         {label}
       </label>
-      <div ref={dropdownRef} className="mt-2 relative border-[2px]">
+      <div ref={dropdownRef} className="mt-2 relative z-1">
         <button
           id={id}
           onClick={() => setOpen(true)}
@@ -103,7 +103,7 @@ const SelectSearch: React.FC<SelectProps> = ({
 
         {/*Dropdown option*/}
 
-        {open && <div
+        {open && <motion.div
           className="
           overflow-auto
           max-h-[250px]
@@ -117,7 +117,10 @@ const SelectSearch: React.FC<SelectProps> = ({
           gap-1
           rounded-md
           top-[110%]
-          p-2">
+          p-2"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1}}
+          transition={{ duration: 0.3 }}>
           <input
           id={id}
           type={'text'}
@@ -162,7 +165,7 @@ const SelectSearch: React.FC<SelectProps> = ({
               {item.value === value?.value && <FaCheck size={16} className="text-primary" />}
               <span>{item.label}</span>
             </div>))}
-        </div>}
+        </motion.div>}
       </div>
     </div>
   );

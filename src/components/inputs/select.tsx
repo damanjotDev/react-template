@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import useOutsideClick from "../../utils/outSideClick";
 import { FieldErrors } from "react-hook-form";
 import { FaAngleDown, FaCheck } from "../../utils/icons"
-import { AnimatePresence, motion } from "../../utils/animation";
+import { motion } from "../../utils/animation";
 
 // import ReactSelect from 'react-select'
 
@@ -54,7 +54,7 @@ const Select: React.FC<SelectProps> = ({
       >
         {label}
       </label>
-      <div ref={dropdownRef} className="mt-2 relative border-[2px]">
+      <div ref={dropdownRef} className="mt-2 relative border-[2px] z-1">
         <button
           id={id}
           onClick={() => setOpen(true)}
@@ -94,7 +94,6 @@ const Select: React.FC<SelectProps> = ({
         {/*Dropdown option*/}
 
         {open &&
-        <AnimatePresence>
           <motion.div
           className="
           overflow-auto
@@ -110,10 +109,9 @@ const Select: React.FC<SelectProps> = ({
           rounded-md
           top-[110%]
           p-2"
-           initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.3 }}>
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1}}
+          transition={{ duration: 0.3 }}>
           {options?.map((item) => (
             <div
               key={item.value}
@@ -133,7 +131,6 @@ const Select: React.FC<SelectProps> = ({
               <span>{item.label}</span>
             </div>))}
         </motion.div>
-        </AnimatePresence>
        }
       </div>
     </div>
