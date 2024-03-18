@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 import useOutsideClick from '../../utils/outSideClick';
 import { format } from 'date-fns';
+import { enUS } from 'date-fns/locale';
 
 interface InputProps {
   placeHolder?:string;
@@ -106,6 +107,7 @@ const Input: React.FC<InputProps> = ({
             animate={{ opacity: 1, scale: 1}}
             transition={{ duration: 0.3 }}>
             <DayPicker 
+            locale={enUS}
             mode='single' 
             captionLayout="dropdown-buttons" 
             fromYear={2015} 

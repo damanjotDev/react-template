@@ -17,11 +17,13 @@ import { error } from 'console';
 
 
 const validation = yup.object().shape({
-  select: yup.date().optional().nullable()
+  select: yup.date().required().nullable(),
+  name: yup.string().required()
 })
 
 interface IFormInput {
-select?: Date | null | undefined 
+select: Date | null | undefined ;
+name : string;
 }
 
 
@@ -36,20 +38,21 @@ function App() {
     formState: {
       errors,
     }
-  } = useForm({
-    resolver: yupResolver(validation),
+  } = useForm<FieldValues>({
+    // resolver: yupResolver(validation),
     defaultValues: {
-      select: null
+      select: null,
+      name: ''
     }
   });
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data)
   }
 
   return (
     <div className="App">
-      {/* <Input label='name' id='name' required={true} register={register} errors={errors} className='h5' placeHolder='name'/> */}
+      <Input label='name' id='name' required={true} register={register} errors={errors} className='h5' placeHolder='name'/>
       {/* <Select id='select' value={value} label='dropdown' onChange={(res: any)=>setValue(res)} options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}/>
       <MultiSelect id='select' value={value} label='dropdown' onChange={(res: any)=>setValue(res)} options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}/>
      <SelectSearch id='select' value={value} label='dropdown' onChange={(res: any)=>setValue(res)} options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}/> */}
