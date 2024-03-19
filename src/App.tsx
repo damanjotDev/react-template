@@ -14,6 +14,7 @@ import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { stringMap } from 'aws-sdk/clients/backup';
 import { error } from 'console';
+import DatePickerTime from './components/inputs/datePickerTime';
 
 
 const validation = yup.object().shape({
@@ -57,6 +58,8 @@ function App() {
       <MultiSelect id='select' value={value} label='dropdown' onChange={(res: any)=>setValue(res)} options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}/>
      <SelectSearch id='select' value={value} label='dropdown' onChange={(res: any)=>setValue(res)} options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}/> */}
      <DatePicker label='select date' id='select' type='date' errors={errors} value={new Date()} onChange = {(res)=>setValue('select',res)}/>
+     <DatePickerTime label='select date' id='select' type='date' errors={errors} value={new Date()} onChange = {(res)=>setValue('select',res)}/>
+
      <button onClick={handleSubmit(onSubmit)}>submit</button>
     </div>
   );
