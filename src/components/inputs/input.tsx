@@ -13,7 +13,7 @@ interface InputProps {
   id: string;
   type?: string;
   required?: boolean;
-  register: UseFormRegister<FieldValues>,
+  register: UseFormRegister<any>,
   errors: FieldErrors
   disabled?: boolean;
 }
@@ -59,7 +59,7 @@ const Input: React.FC<InputProps> = ({
             ring-1 
             ring-inset 
             ring-primary
-            placeholder:secondary-foreground
+            placeholder-secondary-foreground
             focus:ring-2 
             focus:ring-inset
             h7

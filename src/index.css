@@ -58,7 +58,7 @@ body,
  
 
 @layer utilities {
-  @variants responsive {
+
     /* Hide scrollbar for Chrome, Safari, and Opera */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -70,7 +70,7 @@ body,
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: 4px solid; /* Firefox */
     }
-  }
+  
 }
 
 .h1 {
@@ -102,6 +102,17 @@ body,
 
 .h7{
   @apply leading-7 text-secondary-foreground [&:not(:first-child)]:mt-6
+}
+
+
+/* button clases */
+
+.btn-primary{
+  @apply text-lg  tracking-tight text-primary-foreground transition-all bg-primary rounded-md hover:opacity-95 p-1.5
+}
+
+.btn-primary-outline{
+  @apply text-lg  tracking-tight border-[1px] border-primary text-primary transition-all bg-background rounded-md hover:opacity-95 p-1
 }
 
 
