@@ -49,6 +49,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeHolder}
           {...register(id, { required })}
           className={clsx(`
+            bg-background
             form-input
             block 
             w-full 
@@ -58,13 +59,13 @@ const Input: React.FC<InputProps> = ({
             ring-1 
             ring-inset 
             ring-primary
-            placeholder:primary-foreground 
+            placeholder:secondary-foreground
             focus:ring-2 
             focus:ring-inset
             h7
             p-2
             `,
-            errors[id] ?'focus:ring-rose-500':'  focus:ring-sky-600 ',
+            errors[id] ?'focus:ring-rose-500':'focus:ring-primary ',
             disabled && 'opacity-50 cursor-default',
             className
           )}

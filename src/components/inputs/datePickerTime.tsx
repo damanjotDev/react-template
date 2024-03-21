@@ -52,11 +52,7 @@ const DatePickerTime: React.FC<DatePickerProps> = ({
   }
 
   const handleTime = (res:string) => {
-    if(res){
-      const [hours,minutes] = res?.split(':');
-      
-      if()
-    }
+   
   }
 
   return ( 
