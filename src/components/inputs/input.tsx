@@ -9,7 +9,7 @@ import {
 interface InputProps {
   placeHolder?:string;
   className?:string;
-  label: string;
+  label?: string;
   id: string;
   type?: string;
   required?: boolean;
@@ -31,15 +31,16 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return ( 
     <div>
+     {label && 
       <label 
-        htmlFor={id} 
-        className={clsx(`
-        block 
-        h7`,
-        className)}
-      >
-        {label}
-      </label>
+      htmlFor={id} 
+      className={clsx(`
+      block 
+      h7`,
+      className)}
+    >
+      {label}
+    </label>}
       <div className="mt-1">
         <input
           id={id}
@@ -56,18 +57,17 @@ const Input: React.FC<InputProps> = ({
             rounded-md 
             border-0 
             shadow-sm 
-            ring-1 
-            ring-inset 
+            ring-1  
             ring-primary
             placeholder-secondary-foreground
             focus:ring-2 
             focus:ring-inset
             h7
             p-2
+            ${className}
             `,
             errors[id] ?'focus:ring-rose-500':'focus:ring-primary ',
             disabled && 'opacity-50 cursor-default',
-            className
           )}
         />
       </div>

@@ -1,11 +1,14 @@
-export const Routes = {
+export const RoutesName = {
         Signup: '/signup',
         Login: '/login',
         ForgetPassword: '/forgetPassword',
         NewPassword: '/newPassword',
         VerifyEmail: '/verifyEmail',
-        Users: '/users',
-        Conversations: '/conversations'
+        Dashboard: '/dashboard',
+        Analytics: '/analytics',
+        Customer: '/customer',
+        Orders: '/orders',
+        Profile: '/profile'
 }
 
-export const AvailableRoutes = Object.values(Routes);
+export const AvailableRoutes = Object.values(RoutesName);

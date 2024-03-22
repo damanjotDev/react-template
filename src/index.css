@@ -12,8 +12,8 @@ body,
   :root {
     --background: 231 100% 99%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 98%;
+    --card-foreground: 220 27% 98%;
     --popover: 210 40% 80%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 248 57% 60%;
@@ -25,7 +25,7 @@ body,
     --accent: 47 100% 57%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 0% 100%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
     --border: 220 27% 98%;
     --input: 231 100% 99%;
     --ring: 248 57% 60%;
@@ -78,15 +78,15 @@ body,
 }
 
 .h2 {
-  @apply text-3xl tracking-tight font-light
+  @apply text-3xl tracking-tight 
 }
 
 .h3 {
-  @apply text-2xl tracking-tight font-[300]
+  @apply text-2xl tracking-tight 
 }
 
 .h4 {
-  @apply text-[22px] tracking-tight font-light
+  @apply text-[22px] tracking-tight 
 }
 
 .h5 {
@@ -101,7 +101,7 @@ body,
 } */
 
 .h7{
-  @apply leading-7 text-secondary-foreground [&:not(:first-child)]:mt-6
+  @apply leading-7 text-secondary-foreground 
 }
 
 

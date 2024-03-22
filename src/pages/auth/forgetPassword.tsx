@@ -19,7 +19,7 @@ interface IFormInput {
 }
 
 
-const Login = () => {
+const ForgetPassword = () => {
   const dispatch = useAppDispatch()
   const currentNumber = useTypedSelector((state) => state.IncDec.currentNumber) //getting data from store
   const apiNumber = useTypedSelector((state) => state.IncDec.apiNumber)
@@ -78,4 +78,4 @@ const Login = () => {
   );
 }
 
-export { Login };
+export { ForgetPassword };
