@@ -101,7 +101,7 @@ body,
 } */
 
 .h7{
-  @apply leading-7 text-secondary-foreground 
+  @apply  text-secondary-foreground 
 }
 
 

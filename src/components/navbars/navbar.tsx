@@ -33,6 +33,7 @@ const Navbar = () => {
     return (
         <div className="
         fixed
+        z-50
         inset-x-0
         ml-20
         lg:ml-80
@@ -111,6 +112,7 @@ const Navbar = () => {
                             right-0
                             top-[100%]
                             py-2
+                            z-50
                             ">
                                 <div className="
                                 flex

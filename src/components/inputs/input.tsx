@@ -36,8 +36,7 @@ const Input: React.FC<InputProps> = ({
       htmlFor={id} 
       className={clsx(`
       block 
-      h7`,
-      className)}
+      h7`)}
     >
       {label}
     </label>}
@@ -60,6 +59,7 @@ const Input: React.FC<InputProps> = ({
             ring-1  
             ring-primary
             placeholder-secondary-foreground
+            placeholder:text-[16px]
             focus:ring-2 
             focus:ring-inset
             h7

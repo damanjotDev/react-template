@@ -45,16 +45,16 @@ const Select: React.FC<SelectProps> = ({
     onChange(item)
   }
   return (
-    <div className="z-[100]">
+    <div className="">
       <label
         className="
           block 
-          h6
+          h7
         "
       >
         {label}
       </label>
-      <div ref={dropdownRef} className="mt-2 relative border-[2px] z-1">
+      <div ref={dropdownRef} className="mt-1 relative z-1">
         <button
           id={id}
           onClick={() => setOpen(true)}
@@ -69,10 +69,9 @@ const Select: React.FC<SelectProps> = ({
             ring-1 
             ring-inset 
             ring-primary
-            placeholder:primary-foreground 
             focus:ring-2 
             focus:ring-inset
-            h6
+            h7
             p-2
             focus:ring-sky-600
             `,
@@ -87,7 +86,7 @@ const Select: React.FC<SelectProps> = ({
             transition-all
             duration-300
           `, open && 'rotate-180')}>
-            <FaAngleDown size={20} className="text-primary" />
+            <FaAngleDown size={20} className="text-secondary-foreground" />
           </span>
         </button>
 
@@ -100,8 +99,9 @@ const Select: React.FC<SelectProps> = ({
           max-h-[250px]
           border-[1px] 
           border-primary
+          bg-card
           absolute
-          z-20
+          z-40
           inset-x-0
           flex
           flex-col

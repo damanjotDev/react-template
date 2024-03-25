@@ -6,6 +6,8 @@ import { GrFacebookOption } from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineAnalytics } from "react-icons/md";
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import { ImAttachment } from "react-icons/im";
+
 
 
 export{
@@ -19,5 +21,6 @@ export{
     MdOutlineNotificationsNone,
     FaRegCircleUser,
     IoSettingsOutline,
-    IoLogOutOutline
+    IoLogOutOutline,
+    ImAttachment
 }

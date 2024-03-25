@@ -41,8 +41,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useOutsideClick({ ref: dropdownRef, callback: () => setOpen(false) });
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  useOutsideClick({ ref: dropdownRef, callback: () => setOpen(false) });
 
   const handleChange = (res: Date | undefined) => {
     if(onChange) onChange(res)
@@ -50,26 +51,32 @@ const DatePicker: React.FC<DatePickerProps> = ({
     setOpen(false)
   }
 
+  const handleClick = () => {
+    setOpen(true)
+    if (inputRef.current) {
+      inputRef.current.type = 'text';
+    }
+  }
   return ( 
     <div>
       <label 
         htmlFor={id} 
         className={clsx(`
         block 
-        h7`,
-        className)}
+        h7`)}
       >
         {label}
       </label>
       <div className="mt-1 relative z-1">
         <input
+          ref={inputRef}
           id={id}
           type={type}
           required={required}
           autoComplete={id}
           disabled={disabled}
           placeholder={placeHolder}
-          onClick={()=>setOpen(true)}
+          onClick={()=>handleClick()}
           value={selectedDay ? format(selectedDay, "yyyy-MM-dd").toString():""}
           className={clsx(`
             form-input
@@ -89,7 +96,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
             `,
             errors[id] ? 'focus:ring-rose-500':' focus:ring-sky-600',
             disabled && 'opacity-50 cursor-default',
-            
+            className
           )}
         />
         {open && 
@@ -102,7 +109,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
             z-20
             rounded-md
             top-[110%]
-            p-2"
+            bg-card"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1}}
             transition={{ duration: 0.3 }}>
