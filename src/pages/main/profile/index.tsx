@@ -23,22 +23,179 @@ const Profile = () => {
     return(
         <div className="
         w-full 
-        h-full 
-        pt-[84px] 
+        h-screen
+        pt-[88px] 
         lg:pl-80
         pl-20">
             <div className="
             w-full
-            h-full
+            h-auto
             py-5
-            px-3
+            px-5
             flex
             flex-col
             lg:flex-row
             gap-5
             ">
+                {/* Form Section */}
+
+               <div className="
+               h-full
+               flex-1
+               flex
+               flex-col
+               gap-5
+               bg-destructive
+               rounded-lg
+               p-5">
+
+                {/* General Infromation */}
+
+                <div className="
+                flex
+                flex-col
+                gap-3">
+
+                    <h1 className="h4 font-medium">General Infromation</h1>
+                    <div className="
+                    grid
+                    grid-cols-1
+                    lg:grid-cols-2
+                    xl:gap-x-10
+                    gap-4
+                    ">
+                        <Input 
+                        label='First Name' 
+                        id='first_name' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your first name' />
+
+                        <Input 
+                        label='Last Name' 
+                        id='last_name' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your last name' />
+
+                        <DatePicker 
+                        label='Birthday' 
+                        id='dob' 
+                        type='date' 
+                        errors={errors} 
+                        value={new Date()} 
+                        onChange = {(res)=>setValue('select',res)}
+                        className="ring-0 focus:ring-0 bg-card xl:p-3"/>
+
+                        <Select 
+                        label='Select'
+                        id='gender' 
+                        value={null} 
+                        onChange={(res: any)=>console.log(res)} 
+                        options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}
+                        className="ring-0 focus:ring-0 bg-card xl:p-3"/>
+
+                        <Input 
+                        label='Email' 
+                        id='email' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your email' />
+
+                        <Input 
+                        label='Phone' 
+                        id='phone' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your phone number' />
+                    </div>
+                </div>
+
+                  {/* Address Infromation */}
+
+                  <div className="
+                    flex
+                    flex-col
+                    gap-3">
+
+                    <h1 className="h4 font-medium">Address</h1>
+                    <div className="
+                    grid
+                    grid-cols-1
+                    lg:grid-cols-2
+                    xl:gap-x-10
+                    gap-4
+                    ">
+                        <Input 
+                        label='Address' 
+                        id='address' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your address' />
+
+                        <Input 
+                        label='No' 
+                        id='last_name' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your No' />
+
+                        <Select 
+                        label='Select State'
+                        id='state' 
+                        value={null} 
+                        onChange={(res: any)=>console.log(res)} 
+                        options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}
+                        className="ring-0 focus:ring-0 bg-card xl:p-3"/>
+
+                        <Input 
+                        label='ZIP' 
+                        id='zip' 
+                        required={true} 
+                        register={register} 
+                        errors={errors} 
+                        className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                        placeHolder='Your ZIP' />
+
+                        <div className="lg:col-span-2 xl:col-span-1">
+                            <Input 
+                            label='Phone' 
+                            id='phone' 
+                            required={true} 
+                            register={register} 
+                            errors={errors} 
+                            className='h5 ring-0 focus:ring-0 bg-card xl:p-3' 
+                            placeHolder='Your phone number' />
+                        </div>
+                    </div>
+                </div>
+
+                  { /* Action Button */ }
+                <div className="w-[100px] mt-5">
+                            <Button 
+                            type="button" 
+                            id='button' 
+                            className='btn-primary xl:p-3'>
+                                Save All
+                            </Button>
+                 </div>
+               </div>
+
                 {/* avatar section */}
                 <div className="
+                xl:w-[30%]
                 lg:w-[40%]
                 w-full
                 h-full
@@ -51,7 +208,7 @@ const Profile = () => {
                     flex-col
                     bg-destructive
                     rounded-lg
-                    h-[335px]
+                    h-[400px]
                     w-full">
                         <div className="
                         absolute
@@ -105,6 +262,7 @@ const Profile = () => {
                         bottom-0
                         inset-x-0
                         h-[74px]
+                        xl:h-[120px]
                         px-3
                         pb-3
                         ">
@@ -165,159 +323,7 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-
-               {/* Form Section */}
-
-               <div className="
-               h-full
-               flex
-               flex-col
-               gap-5
-               bg-destructive
-               rounded-lg
-               p-5">
-
-                {/* General Infromation */}
-
-                <div className="
-                flex
-                flex-col
-                gap-3">
-
-                    <h1 className="h4 font-medium">General Infromation</h1>
-                    <div className="
-                    grid
-                    grid-cols-1
-                    lg:grid-cols-2
-                    gap-4
-                    ">
-                        <Input 
-                        label='First Name' 
-                        id='first_name' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your first name' />
-
-                        <Input 
-                        label='Last Name' 
-                        id='last_name' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your last name' />
-
-                        <DatePicker 
-                        label='Birthday' 
-                        id='dob' 
-                        type='date' 
-                        errors={errors} 
-                        value={new Date()} 
-                        onChange = {(res)=>setValue('select',res)}
-                        className="ring-0 focus:ring-0 bg-card"/>
-
-                        <Select 
-                        label='Select'
-                        id='gender' 
-                        value={null} 
-                        onChange={(res: any)=>console.log(res)} 
-                        options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}
-                        className="ring-0 focus:ring-0 bg-card"/>
-
-                        <Input 
-                        label='Email' 
-                        id='email' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your email' />
-
-                        <Input 
-                        label='Phone' 
-                        id='phone' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your phone number' />
-                    </div>
-                </div>
-
-                  {/* Address Infromation */}
-
-                  <div className="
-                    flex
-                    flex-col
-                    gap-3">
-
-                    <h1 className="h4 font-medium">Address</h1>
-                    <div className="
-                    grid
-                    grid-cols-1
-                    lg:grid-cols-2
-                    gap-4
-                    ">
-                        <Input 
-                        label='Address' 
-                        id='address' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your address' />
-
-                        <Input 
-                        label='No' 
-                        id='last_name' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your No' />
-
-                        <Select 
-                        label='Select State'
-                        id='state' 
-                        value={null} 
-                        onChange={(res: any)=>console.log(res)} 
-                        options={[{value:1,label:'hi'},{value:2,label:'hi12'},{value:3,label:'hi3'},{value:4,label:'hi4'}]}
-                        className="ring-0 focus:ring-0 bg-card"/>
-
-                        <Input 
-                        label='ZIP' 
-                        id='zip' 
-                        required={true} 
-                        register={register} 
-                        errors={errors} 
-                        className='h5 ring-0 focus:ring-0 bg-card' 
-                        placeHolder='Your ZIP' />
-
-                        <div className="lg:col-span-2">
-                            <Input 
-                            label='Phone' 
-                            id='phone' 
-                            required={true} 
-                            register={register} 
-                            errors={errors} 
-                            className='h5 ring-0 focus:ring-0 bg-card ' 
-                            placeHolder='Your phone number' />
-                        </div>
-                        
-                        <div className="w-[100px]">
-                            <Button 
-                            type="button" 
-                            id='button' 
-                            className='btn-primary'>
-                                Save All
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-               </div>
+                </div>               
             </div>
         </div>
     )
